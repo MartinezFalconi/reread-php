@@ -4,7 +4,7 @@
 $host = "localhost";
 $user = "root";
 $pass = "";
-$db = "db_reread"
+$db = "db_reread";
 
 // Crear la conexion
 $conn = mysqli_connect($host, $user, $pass, $db);
