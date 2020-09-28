@@ -66,17 +66,25 @@
           echo "0 resultados";
         }
 
-      ?>
+        
+        
 
-   </div>
-  
-  <div class="column right">
-    <h2>Top ventas</h2>
-    <p>Cien años de soledad.</p>
-    <p>Crónica de una muerte anunciada.</p>
-    <p>El otoño del patriarca.</p>
-    <p>El general en su laberinto.</p>
-  </div>
+   echo "</div>";
+
+   $result = mysqli_query($conn, "SELECT Books.Title FROM Books WHERE Top > 0");
+
+   echo "<div class='column right'>";
+     echo "<h2>Top ventas</h2>";
+     if(!empty($result) && mysqli_num_rows($result) > 0) {
+       while ($row = mysqli_fetch_array($result)) {
+         echo "<p>".$row['Title']."</p>";
+       }
+     }
+   echo "</div>";
+
+
+      ?>
+          
 </div>
   
 </body>
