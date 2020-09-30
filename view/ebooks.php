@@ -4,7 +4,6 @@
 <title>CSS Website Layout</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<scipt src="./javascript/code.js"></script>
 <link rel="stylesheet" type="text/css" href="../css/estilos.css"><link>
 </head>
 <body>
