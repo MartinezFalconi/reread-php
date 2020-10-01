@@ -33,13 +33,21 @@
     <p>Somos la librería Eco-Friendly – Re-Read nació pensando en verde con el objetivo de compartir una pasión, la lectura y para expresar una preocupación: si queremos construir un futuro sostenible, es necesario que reduzcamos el consumo y que reutilicemos cuantos más objetos materiales mejor.</p>
   </div>
   
-  <div class="column right">
-    <h2>Top ventas</h2>
-    <p>Cien años de soledad.</p>
-    <p>Crónica de una muerte anunciada.</p>
-    <p>El otoño del patriarca.</p>
-    <p>El general en su laberinto.</p>
-  </div>
+  <?php
+        //Conexion a BDE
+        include "./services/connection.php";
+        //Seleccion y muestra de base de datos
+  $result = mysqli_query($conn, "SELECT Books.Title FROM Books WHERE Top > 0");
+
+        echo "<div class='column right'>";
+          echo "<h2>Top ventas</h2>";
+          if(!empty($result) && mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_array($result)) {
+              echo "<p>".$row['Title']."</p>";
+            }
+          }
+        echo "</div>";
+    ?>
 </div>
   
 </body>
